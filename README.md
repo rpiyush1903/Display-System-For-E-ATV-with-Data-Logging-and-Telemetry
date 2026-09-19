@@ -1,4 +1,4 @@
-# Smart Display and Safety System for an E-ATV Using CAN Bus Communication Protocol
+# Display and Safety System for an E-ATV Using CAN Bus Communication Protocol
 
 ## Description
 
