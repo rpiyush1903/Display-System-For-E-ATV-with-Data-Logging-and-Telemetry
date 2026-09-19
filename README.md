@@ -26,9 +26,9 @@ I started from the JBD BMS's CAN output, since that's already generating the dat
 
 **Reading the BMS over CAN.** I used an MCP2515 CAN controller (SPI interface) to talk to the BMS at 500kbps. The BMS broadcasts on a few standard IDs, and I parsed the ones that matter for the dashboard:
 
-| CAN ID | Data | Notes |
-| :--- | :--- | :--- |
-| `0x100` | Pack voltage and current | 0.01V/bit and 0.01A/bit; I check the sign/state to tell charging apart from discharging |
+| CAN ID | Data |
+| :--- | :--- |
+| `0x100` | Pack voltage and current |
 | `0x101` | State of charge 
 | `0x105` | Pack temperature 
 
@@ -40,11 +40,5 @@ Since the BMS doesn't just keep streaming data forever on its own, I have the mi
 
 **Putting it on one board.** Once the logic was working on a breadboard, I moved everything onto a custom PCB. The main reason was reliability . An ATV shakes a lot, and loose header connections are a common failure point. I also made sure to physically separate the high-speed SPI lines (display and CAN) from the relay switching lines on the layout, since the relay can introduce electrical noise that was causing flicker on the display and occasional glitches on the CAN bus during earlier tests.
 
-### Pin Reference
 
-| Component | MCU Pin | Function |
-| :--- | :--- | :--- |
-| MCP2515 CS | Pin 7 | SPI chip select for the CAN controller |
-| Safety Relay | Pin 5 | Digital output (HIGH = de-energized / power on, LOW = energized / power cut) |
-| TFT Display | SPI bus | Hardware SPI, configured via `User_Setup.h` |
 
