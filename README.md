@@ -48,7 +48,3 @@ Since the BMS doesn't just keep streaming data forever on its own, I have the mi
 | Safety Relay | Pin 5 | Digital output (HIGH = de-energized / power on, LOW = energized / power cut) |
 | TFT Display | SPI bus | Hardware SPI, configured via `User_Setup.h` |
 
-
-### Schematics and PCB Layout
-
-*(Circuit diagram and PCB images go here.)*
